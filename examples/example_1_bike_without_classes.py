@@ -31,5 +31,6 @@ bike1 = create_bike('Univega Alpina, orange', cost=100, sale_price=500, conditio
 update_sale_price(bike1, 350)
 # bike1['sale_price'] = 350.00
 
+
 print(sell(bike1))
 # bike1['sold'] = True
