@@ -19,3 +19,37 @@ git log --grep=“INVIE” –i- Busca los commits que cumplan sin importar may�
 git log – index.html- Busca los commits en un archivo en específico.
 git log -S “Por contenido”- Buscar los commits con el contenido dentro del archivo.
 git log > log.txt - guardar los logs en un archivo txt
+
+
+Primer paso: Generar tus llaves SSH. Recuerda que es muy buena idea proteger tu llave privada con una contraseña.
+
+ssh-keygen -t rsa -b 4096 -C "tu@email.com"
+
+Segundo paso: Terminar de configurar nuestro sistema.
+
+En Windows y Linux:
+
+# Encender el "servidor" de llaves SSH de tu computadora:
+eval $(ssh-agent -s)
+
+# Añadir tu llave SSH a este "servidor":
+ssh-add ruta-donde-guardaste-tu-llave-privada
+
+En Mac:
+
+# Encender el "servidor" de llaves SSH de tu computadora:
+eval "$(ssh-agent -s)"
+
+# Si usas una versión de OSX superior a Mac Sierra (v10.12)
+# debes crear o modificar un archivo "config" en la carpeta
+# de tu usuario con el siguiente contenido (ten cuidado con
+# las mayúsculas):
+Host *
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentityFile ruta-donde-guardaste-tu-llave-privada
+
+# Añadir tu llave SSH al "servidor" de llaves SSH de tu
+# computadora (en caso de error puedes ejecutar este
+# mismo comando pero sin el argumento -K):
+ssh-add -K ruta-donde-guardaste-tu-llave-privada
