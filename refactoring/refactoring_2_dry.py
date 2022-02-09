@@ -6,8 +6,20 @@ There first person to space 100 wins.
 """
 from random import randint
 
-def run_game(num_player=2):
-    pass
+def run_game(num_players=2):
+    scores = [0 for _ in range(num_players)]
+
+    while True:
+        for i, score in enumerate(scores):
+            player_num = i + 1
+            roll = randint(1, 6)
+            score += roll
+            scores[i] = score
+            print(f"Player {player_num} score: {score} (rolled a {roll})")
+
+            if score >= 100:
+                print(f"Player {player_num} wins!")
+
 
 if __name__ == '__main__':
     print("-- GAME 1 --")
