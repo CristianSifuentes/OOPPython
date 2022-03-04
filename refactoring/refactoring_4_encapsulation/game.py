@@ -1,5 +1,6 @@
 from player import Player
 
+
 class Game:
     counter = 0
 
@@ -13,7 +14,7 @@ class Game:
         return player.score >= self.target_score
 
     def run(self):
-        print(f"----- {self} start ------")
+        print(f"------ {self} start --------")
 
         while True:
             for player in self.players:
@@ -22,7 +23,7 @@ class Game:
                 if self.player_has_won(player):
                     print(f"{player} wins!")
                     print(f"------ {self} end --------")
-                    return      
+                    return
 
     def __str__(self):
         return f"Game {self.game_num}"

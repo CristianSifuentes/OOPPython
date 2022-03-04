@@ -2,9 +2,10 @@
 Simulate a simple board game.
 There are 2 players.
 Each player takes turn rolling a die and moving that number of spaces.
-There first person to space 100 wins.
+The first person to space 100 wins.
 """
 from random import randint
+
 
 def run_game(num_players=2):
     scores = [0 for _ in range(num_players)]
@@ -19,11 +20,11 @@ def run_game(num_players=2):
 
             if score >= 100:
                 print(f"Player {player_num} wins!")
+                return
 
 
 if __name__ == '__main__':
-    print("-- GAME 1 --")
+    print("------ GAME 1 --------")
     run_game(4)
-    print("-- GAME 2 --")
-    run_game(3)   
-   
+    print("------ GAME 2 --------")
+    run_game(3)
