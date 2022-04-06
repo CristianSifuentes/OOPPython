@@ -6,7 +6,7 @@ class Bike(object):
         self.sale_price = sale_price
         self.cost = cost
 
-        # Same initial valye for every new instance
+        # Same initial value for every new instance
         self.sold = False
 
     def update_sale_price(self):
@@ -17,6 +17,3 @@ class Bike(object):
 
     def service(self):
         pass
-
-
-    

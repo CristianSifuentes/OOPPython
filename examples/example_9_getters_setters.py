@@ -10,6 +10,8 @@ class Condition(Enum):
 
 class MethodNotAllowed(Exception):
     pass
+
+
 class Bike(object):
     min_profit = 10
 
@@ -20,7 +22,7 @@ class Bike(object):
         self.cost = cost
 
         self.sold = False
-    
+
     @property
     def sale_price(self):
         return self._sale_price
@@ -48,8 +50,7 @@ class Bike(object):
             self.sale_price = sale_price
         if self.condition:
             self.condition = condition
-    
-    
+
     @classmethod
     def get_default_bike(cls):
         return cls(
@@ -57,7 +58,6 @@ class Bike(object):
             condition=Condition.GOOD,
             sale_price=100
         )
-
 
 
 if __name__ == '__main__':
@@ -70,3 +70,4 @@ if __name__ == '__main__':
 
     bike.sell()
     bike.sale_price = 200   # Exception raised
+

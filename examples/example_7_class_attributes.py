@@ -7,13 +7,15 @@ class Condition(Enum):
     OKAY = 2
     BAD = 3
 
+
 class MethodNotAllowed(Exception):
     pass
+
 
 class Bike(object):
     count = 0
     num_wheels = 2
-    
+
     def __init__(self, description, condition, sale_price, cost=0):
         self.description = description
         self.condition = condition
@@ -22,7 +24,6 @@ class Bike(object):
 
         self.sold = False
         Bike.count += 1
-
 
     def __del__(self):
         Bike.count -= 1
@@ -63,4 +64,4 @@ if __name__ == '__main__':
     print(Bike.count)  # 2
 
     del bike1
-    print(Bike.count)  # 1   
+    print(Bike.count)  # 1

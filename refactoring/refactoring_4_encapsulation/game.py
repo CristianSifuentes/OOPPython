@@ -17,9 +17,13 @@ class Game:
         print(f'---- {self} end ----')
 
     def run(self):
+<<<<<<< HEAD:refactoring/refactoring_encapsulation/game.py
         self.start()
         self.take_turns()
         self.end()
+=======
+        print(f"------ {self} start --------")
+>>>>>>> c556b7242cc3db179e61b0759834bb98c098481e:refactoring/refactoring_4_encapsulation/game.py
 
     def take_turns(self):
         while True:
@@ -29,6 +33,7 @@ class Game:
                 print(f'{self.winner} wins!')
                 return
 
+<<<<<<< HEAD:refactoring/refactoring_encapsulation/game.py
     def game_over(self):
         for player in self.players:
             if player.score >= self.target_score:
@@ -44,6 +49,12 @@ class Game:
                 max_score = player.score
                 max_player = player
         return max_player
+=======
+                if self.player_has_won(player):
+                    print(f"{player} wins!")
+                    print(f"------ {self} end --------")
+                    return
+>>>>>>> c556b7242cc3db179e61b0759834bb98c098481e:refactoring/refactoring_4_encapsulation/game.py
 
     def __str__(self):
         return f'Game {self.num}'
