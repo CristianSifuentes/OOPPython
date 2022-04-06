@@ -1,6 +1,6 @@
-
-from datetime import date, datetime
+from datetime import datetime
 from enum import Enum
+
 
 class Condition(Enum):
     NEW = 0
@@ -12,12 +12,14 @@ class Condition(Enum):
 class MethodNotAllowed(Exception):
     pass
 
+
 class Bike(object):
     def __init__(self, description, condition, sale_price, cost=0):
         self.description = description
         self.condition = condition
         self.sale_price = sale_price
         self.cost = cost
+
         self.sold = False
 
     def update_sale_price(self, sale_price):
@@ -27,12 +29,12 @@ class Bike(object):
 
     def sell(self):
         """
-        Mark as sold and datetime the profit received from selling the bike
+        Mark as sold and determine the profit received from selling the bike
         """
         self.sold = True
         profit = self.sale_price - self.cost
         return profit
-    
+
     def service(self, spent, sale_price=None, condition=None):
         """
         Service the bike and update attributes
@@ -54,13 +56,13 @@ class Bike(object):
         current_year = datetime.now().year
         age = current_year - year
         if age < 1:
-            return 'New'
+            return "New"
         elif age < 5:
-            return 'Recent'
+            return "Recent"
         elif age < 40:
-            return 'Old'
-        else: 
-            return 'Vintage'
+            return "Old"
+        else:
+            return "Vintage"
 
     @classmethod
     def get_default_bike(cls):
@@ -72,9 +74,13 @@ class Bike(object):
 
 
 if __name__ == '__main__':
-    bike = Bike.get_default_bike() # Class method
+
+    bike = Bike.get_default_bike()  # Class method
+
     bike.sell()
-    print(bike.profit) # Call property
+    print(bike.profit)    # Call property
+
     # Call static methods
-    print(bike.age(1975)) # Vintage
-    print(Bike.age(2019)) # Recent
+    print(bike.age(1975))  # Vintage
+    print(Bike.age(2019))  # Recent
+
