@@ -1,25 +1,26 @@
-from random import randint
+import random
+
 
 class Player:
-    def __init__(self, player_num):
+    def __init__(self, num):
         self._score = 0
-        self.num = player_num
-
-    @staticmethod
-    def _roll():
-        return randint(1, 6)
+        self.num = num
 
     @property
     def score(self):
         return self._score
 
-    def make_move(self):
+    def take_turn(self):
         roll = self._roll()
         self._score += roll
-        print(f"{self} score: {self.score} (rolled a {roll})")
+        print(f'{self} rolled a {roll} ({self.score})')
+
+    @staticmethod
+    def _roll():
+        return random.randint(1, 6)
 
     def __str__(self):
-        return f"Player {self.num}"
+        return f'Player {self.num}'
 
     def __repr__(self):
-        return f"Player({self.num})"
+        return f'Player({self.num})'
